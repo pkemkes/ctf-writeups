@@ -5,4 +5,7 @@ This repository contains a random assortment of writeups whenever I find time to
 Currently available writeups:
 
 ### HITCON CTF 2022
-- 🎲 RCE - [go to writeup](hitconctf2022/rce/README.md)
+- 🎲 RCE - [writeup](./hitconctf2022/rce/)
+
+### Square CTF 2022
+- Alex Hanlon Has The Flag! - [writeup](./squarectf2022/alex-hanlon-has-the-flag/)
