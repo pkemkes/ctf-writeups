@@ -1,6 +1,6 @@
 # CTF writeups
 
-This repository contains a random assortment of writeups whenever I find time to do some challenges.
+This repository contains a random assortment of writeups. New ones are added whenever I find time to do some challenges.
 
 Currently available writeups:
 
