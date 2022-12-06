@@ -4,6 +4,7 @@
 |------------|----------|-------------------------------------------|
 | `beginner` | `web`    | [splitline](https://github.com/splitline) | 
 
+Challenge URL: https://ctf2022.hitcon.org/dashboard/#13
 
 ## Challenge:
 

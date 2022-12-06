@@ -4,5 +4,5 @@ This repository contains a random assortment of writeups whenever I find time to
 
 Currently available writeups:
 
-## HITCON 2022
+### HITCON CTF 2022
 - 🎲 RCE - [go to writeup](hitconctf2022/rce/README.md)
