@@ -15,17 +15,17 @@ Have you ever heard of [Infinite monkey theorem](https://en.wikipedia.org/wiki/I
 
 ## Solution:
 
-We are presented with a link to a webpage, as well as a [zip file](assets/rce-4bc5d3c73ac0fd8c0b098e9e7ac5a2e1c7a2fcf6.zip). Let's first take a look at the website:
+We are presented with a link to a webpage, as well as a [zip file](./assets/rce-4bc5d3c73ac0fd8c0b098e9e7ac5a2e1c7a2fcf6.zip). Let's first take a look at the website:
 
-[<img src="assets/screen1.png" alt="screen1.png" width="800"/>](assets/screen1.png)
+[<img src="./assets/screen1.png" alt="screen1.png" width="800"/>](./assets/screen1.png)
 
 If we click on the `RCE!` button, the loading bar fills slowly. Afterwards, we are presented with the following message:
 
-[<img src="assets/screen2.png" alt="screen2.png" width="800"/>](assets/screen2.png)
+[<img src="./assets/screen2.png" alt="screen2.png" width="800"/>](./assets/screen2.png)
 
 It looks like it is actually executing *random* code.
 
-Inside the [zip file](assets/rce-4bc5d3c73ac0fd8c0b098e9e7ac5a2e1c7a2fcf6.zip), we find the source files for the service. It is an express server with a single [app.js](assets/app.js). Conveniently, a [Dockerfile](assets/Dockerfile) is already provided to run the service, so we build the image and run the app ourselves for testing purposes:
+Inside the [zip file](./assets/rce-4bc5d3c73ac0fd8c0b098e9e7ac5a2e1c7a2fcf6.zip), we find the source files for the service. It is an express server with a single [app.js](./assets/app.js). Conveniently, a [Dockerfile](./assets/Dockerfile) is already provided to run the service, so we build the image and run the app ourselves for testing purposes:
 
 ```bash
 docker build -t rce-service --build-arg AUTO_DESTROY=9999 .
@@ -34,11 +34,11 @@ docker run -d -p 5000:5000 rce-service
 
 Now the service is reachable at http://localhost:5000.
 
-Also, if we take a closer look at the [Dockerfile](assets/Dockerfile), we can see where to find the flag. It is written into a file at `/flag-<random_hex_bytes>`. So, our goal is to find a way to read the contents of that.
+Also, if we take a closer look at the [Dockerfile](./assets/Dockerfile), we can see where to find the flag. It is written into a file at `/flag-<random_hex_bytes>`. So, our goal is to find a way to read the contents of that.
 
-If we now inspect the [app.js](assets/app.js), we see a small express app. Two routes are registered:
+If we now inspect the [app.js](./assets/app.js), we see a small express app. Two routes are registered:
 
-- `/` sends the [index.html](assets/index.html) as well as an empty, signed cookie called `code`.
+- `/` sends the [index.html](./assets/index.html) as well as an empty, signed cookie called `code`.
 - `/random` checks the length of the code in that signed cookie. 
     - If it consists of 20 characters or more, it is put into `eval()` and the result is returned. 
     - If it is shorter than that, a random byte is added to the code in the cookie and no code is executed.

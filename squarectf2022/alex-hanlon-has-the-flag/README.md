@@ -22,11 +22,11 @@ We can then access the challenge with the following URL: http://localhost:8080/
 
 We are presented with the following website:
 
-[<img src="assets/screen1.png" alt="screen1.png" width="800"/>](assets/screen1.png)
+[<img src="./assets/screen1.png" alt="screen1.png" width="800"/>](./assets/screen1.png)
 
 The objective is clear: We need to log in as Alex Hanlon. Let's first check how it behaves in general and try to log in with "`username=alex`" and "`password=123456`".
 
-[<img src="assets/screen2.png" alt="screen2.png" width="800"/>](assets/screen2.png)
+[<img src="./assets/screen2.png" alt="screen2.png" width="800"/>](./assets/screen2.png)
 
 We get the error message "Nope, try again!"
 
@@ -51,7 +51,7 @@ The password does not matter if it is hashed, as any input by the user is hashed
 
 This resulting query would return all usernames from the `users` table, as `1=1` is always true. Let's see how the server reacts to this input:
 
-[<img src="assets/screen3.png" alt="screen3.png" width="800"/>](assets/screen3.png)
+[<img src="./assets/screen3.png" alt="screen3.png" width="800"/>](./assets/screen3.png)
 
 We are given the following error message: "Sorry, admin is the wrong user". It sounds like our attack was successful and we would have been able to login as `admin`. But the challenge wants us to login as Alex Hanlon.
 
@@ -71,7 +71,7 @@ With this, all we need is the username to login as any user. But we do not know 
 
 We are successful with the last one and are presented with the flag:
 
-[<img src="assets/screen4.png" alt="screen4.png" width="800"/>](assets/screen4.png)
+[<img src="./assets/screen4.png" alt="screen4.png" width="800"/>](./assets/screen4.png)
 
 ## Prevention:
 

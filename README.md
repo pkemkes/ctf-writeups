@@ -9,3 +9,4 @@ Currently available writeups:
 
 ### Square CTF 2022
 - Alex Hanlon Has The Flag! - [writeup](./squarectf2022/alex-hanlon-has-the-flag/)
+- Going In Blind - [writeup](./squarectf2022/going-in-blind/)
