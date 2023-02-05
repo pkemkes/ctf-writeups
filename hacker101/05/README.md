@@ -18,7 +18,7 @@ Looking at the source code of the page, we can see that the `src` attributes for
 
 Interesting. Instead of displaying the image, as we would normally expect it to do, we get the bytes of a .jpg file. We know this, because the first chars seem to be the header of a .jpg. We are also accessing the image with a GET parameter called `id`... hmm... could this be the ID of a row inside an SQL database?
 
-## flag0 -- The State of the UNION.
+## flag0 - The State of the UNION.
 
 The title I gave this flag is taken from one of the hints that the challenge gives us: *Take a few minutes to consider the state of the union.* So let's exactly do that.
 
@@ -38,7 +38,7 @@ It seems like we got lucky! As the first lines start with the typical python lib
 
 And if we look at the last lines, where the "fetch" route is defined, we can see a flag. Nice.
 
-## flag1 -- The Invisible Kitten.
+## flag1 - The Invisible Kitten.
 
 As we have seen when we had our first look at the page, the third image could not be displayed. Looking at the source code that we got with the first flag, we can see the structure of the database. It contains (at least) two tables, `albums` and `photos`. The `albums` table seems to have two columns, the ID and the title of the albums. The server first gets all IDs for any existing albums and then uses these for the query to the `photos` table. This one seems to have four columns: `id`, `title`, `filename` and `parent`. The server gets all photos for the given album ID in the `parent` table. It uses the `title` as the subtitle for the images. The ID is used for the query on the `/fetch` route, where the `filename` is queried from the same table and opened with `file(filename).read()`.
 
@@ -68,7 +68,7 @@ Now we want to see the filename for the ID 3. Let's try the following query:
 
 Okay, here we can see why the file could not be opened. The filename is just the next flag!
 
-## flag2 -- Remote Code Execution (RCE)
+## flag2 - Remote Code Execution (RCE)
 
 For the last flag, let's take another look at main page. The last line seems to be a counter of the file space used by the pictures. How is this calculated? Luckily we have the source code. Here is the line responsible for this:
 

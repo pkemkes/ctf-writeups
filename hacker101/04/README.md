@@ -12,7 +12,7 @@ When we start the challenge, we are looking at a pastebin, probably inspired by 
 
 [<img src="./assets/hacker101-04-page.png" alt="screen1.png" width="400"/>](./assets/hacker101-04-page.png)
 
-## flag0 -- *We love errors.*
+## flag0 - *We love errors.*
 
 Let's see how the server reacts, when we change something in the "post" parameter. First we create new page to get something that we can modify. This is the result:
 
@@ -44,7 +44,7 @@ The server has been very open with its error messages so far. Could we coax it i
 
 Of course. So, we have a full-fledged padding oracle for an AES-CBC implementation at our disposal. For the next flag we will use that.
 
-## flag1 -- *Dear oracle, tell me the plaintext.*
+## flag1 - *Dear oracle, tell me the plaintext.*
 
 This one will be a bit more complicated. As I am trying to be a bit educational with these writeups, I will first talk a bit about the CBC mode and how the padding and the IV are used, then I will get to the part on how to break it if the server leaks too much information.
 
@@ -144,7 +144,7 @@ To execute the attack and extract the flag, we first need to create a new page. 
 
 Nice, we found a flag! And we can also see that the stored pages are accessed with an ID. So they are probably stored in a database. And the pages are probably encrypted and the key to decrypt them is sent in the parameter. But there is one thing to notice: We have created only one new page. Why does the ID start at 2? 🤔
 
-## flag2 -- CBC Malleability
+## flag2 - CBC Malleability
 
 After decrypting the ciphertext, we found that the first new page starts with ID 2. Let's try to find out what page 1 looks like. For this, we use a weakness of the CBC mode: malleability. This is actually something that we have used in the attack for flag 1. Changing the ciphertext of the previous block leads to a controlled change in the current plaintext block. How is the current plaintext organised when structured in the corresponding blocklength?
 
@@ -178,7 +178,7 @@ Here `IV'` is the new `IV` that we are going to use, `c_6` is the sixth cipherte
 
 We get a new stack trace! Although it seems pretty familiar. There was a padding exception while trying to decrypt a page. Most probably because the sent key was just wrong for the page that we requested. But this time the title of the page is displayed. Conveniently, this is the next flag.
 
-## flag3 -- ???
+## flag3 - ???
 
 This flag has me puzzled. I was not able to solve the last challenge yet. My current guess is, that we need to perform an SQL injection on the ID parameter. But I was not able to do so without ruining some parts of the plaintext.
 
