@@ -71,9 +71,7 @@ If we now use `true` as password, we are logged in, as `1 = 1` is always true. T
 
 `banana' UNION SELECT IF(BINARY SUBSTR((SELECT username FROM admins LIMIT 1), 1, 1) = 1, 'true', 'false');--`
 
-This returns `true` as password, if the first character of the first username in the table admins is an `a`. We can do this now for any possible character and for all following positions in the response string. Doing this looks like this:
-
-<video  width="640" height="360" src="https://pkemkes.github.io/videos/hacker101-03-blind-sqli.mp4" />
+This returns `true` as password, if the first character of the first username in the table admins is an `a`. We can do this now for any possible character and for all following positions in the response string. Doing this looks like this: [hacker101-03-blind-sqli.mp4](https://raw.githubusercontent.com/pkemkes/ctf-writeups/main/hacker101/03/assets/hacker101-03-blind-sqli.mp4)
 
 You can find the code used for this here: [blind_sqli.py](./assets/blind_sqli.py)
 

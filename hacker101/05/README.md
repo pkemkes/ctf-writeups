@@ -115,9 +115,7 @@ This should only return the first line of our command.
 
 And it works! All we need now is a script that automates this for us, so we can take a look around with our easy to use RCE. You can find my implementation here: [rce.py](./assets/rce.py)
 
-When put into action, this looks like this:
-
-<video width="640" height="360" src="https://pkemkes.github.io/videos/hacker101-05-rce.mp4" />
+When put into action, this looks like this: [hacker101-05-rce.mp4](https://raw.githubusercontent.com/pkemkes/ctf-writeups/main/hacker101/05/assets/hacker101-05-rce.mp4)
 
 The question that remains is now: Where is the last flag? It wasn't in /etc/passwd. After some digging I found it (and all other flags as well) in the environment variables:
 
