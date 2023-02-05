@@ -117,7 +117,7 @@ And it works! All we need now is a script that automates this for us, so we can 
 
 When put into action, this looks like this:
 
-<video width="640" height="360" src="https://raw.githubusercontent.com/pkemkes/ctf-writeups/main/hacker101/03/assets/hacker101-05-rce.mp4" />
+<video width="640" height="360" src="https://pkemkes.github.io/videos/hacker101-05-rce.mp4" />
 
 The question that remains is now: Where is the last flag? It wasn't in /etc/passwd. After some digging I found it (and all other flags as well) in the environment variables:
 
