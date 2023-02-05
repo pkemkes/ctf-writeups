@@ -1,8 +1,8 @@
-# Hacker101 - 02 Micro-CMS v1
+# Hacker101 - Micro-CMS v1
 
-| Difficulty | Flags |
-|------------|-------|
-| `easy`     | 4     |
+| Difficulty | Skills | Flags |
+|------------|--------|-------|
+| `easy`     | `web`  | 4     |
 
 Now we are getting a little more advanced. We have to find 4 flags, which can be found with different attack techniques.
 

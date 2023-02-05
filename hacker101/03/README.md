@@ -1,8 +1,8 @@
-# Hacker101 - 03 Micro-CMS v2
+# Hacker101 - Micro-CMS v2
 
-| Difficulty | Flags |
-|------------|-------|
-| `moderate` | 3     |
+| Difficulty | Skills | Flags |
+|------------|--------|-------|
+| `moderate` | `web`  | 3     |
 
 This challenge is based on the same application as before, but now they have increased the security. Although not enough as we will see.
 

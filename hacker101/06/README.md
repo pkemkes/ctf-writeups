@@ -1,8 +1,8 @@
-# Hacker101 - 06 - Cody's First Blog
+# Hacker101 - Cody's First Blog
 
-| Difficulty | Flags |
-|------------|-------|
-| `moderate` | 3     |
+| Difficulty | Skills | Flags |
+|------------|--------|-------|
+| `moderate` | `web`  | 3     |
 
 This time we have a page implemented with PHP. We are going to break some unsafe coding to perform mostly Local File Inclusion (LFI) attacks.
 

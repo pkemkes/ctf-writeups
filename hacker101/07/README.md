@@ -1,8 +1,8 @@
-# Hacker101 - 07 - Postbook
+# Hacker101 - Postbook
 
-| Difficulty | Flags |
-|------------|-------|
-| `easy`     | 7     |
+| Difficulty | Skills | Flags |
+|------------|--------|-------|
+| `easy`     | `web`  | 7     |
 
 We are hacking Facebook! Oh no, wait... Postbook? This challenge aims to be a comparable social media site. We have a lot of flags to find, most of the attacks are logical flaws.
 

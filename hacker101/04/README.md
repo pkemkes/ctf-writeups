@@ -1,8 +1,8 @@
-# Hacker101 - 04 - Encrypted Pastebin
+# Hacker101 - Encrypted Pastebin
 
-| Difficulty | Flags |
-|------------|-------|
-| `hard` | 4     |
+| Difficulty | Skills        | Flags |
+|------------|---------------|-------|
+| `hard`     | `web`, `crpto`| 4     |
 
 This challenge is a bit harder and is focusses on cracking a seemingly secure crypto implementation.
 

@@ -1,8 +1,8 @@
-# Hacker101 - 05 - Photo Gallery
+# Hacker101 - Photo Gallery
 
-| Difficulty | Flags |
-|------------|-------|
-| `moderate` | 3     |
+| Difficulty | Skills | Flags |
+|------------|--------|-------|
+| `moderate` | `web`  | 3     |
 
 This time we are looking at a simple page that displays some pictures of cats. As it uses a database to access these pictures, the attacks will mainly focus on SQL injection again. But there is also some remote code execution involved.
 

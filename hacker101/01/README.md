@@ -1,8 +1,8 @@
-# Hacker101 - 01 A little something to get you started
+# Hacker101 - A little something to get you started
 
-| Difficulty | Flags |
-|------------|-------|
-| `trivial`  | 1     |
+| Difficulty | Skills | Flags |
+|------------|--------|-------|
+| `trivial`  | `web`  | 1     |
 
 This is the first challenge of the Hacker101 CTF. It's purpose seems to be to introduce the players to the system.
 
