@@ -4,7 +4,7 @@ This repository contains a random assortment of writeups. New ones are added whe
 
 Currently available writeups:
 
-### Hacker101 CTR
+### Hacker101 CTF
 - A little something to get you started - [writeup](./hacker101/01/README.md)
 - Micro-CMS v1 - [writeup](./hacker101/02/README.md)
 - Micro-CMS v2 - [writeup](./hacker101/03/README.md)
