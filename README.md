@@ -19,3 +19,11 @@ Currently available writeups:
 ### Square CTF 2022
 - Alex Hanlon Has The Flag! - [writeup](./squarectf2022/alex-hanlon-has-the-flag/)
 - Going In Blind - [writeup](./squarectf2022/going-in-blind/)
+
+### Lexington Informatics Tournament CTF 2023
+- misc/HelloWorld - [writeup](./litctf2023/hello-world/)
+- web/My boss left - [writeup](./litctf2023/my-boss-left/)
+- web/unsecure - [writeup](./litctf2023/unsecure/)
+- web/Ping Pong - [writeup](./litctf2023/ping-pong/)
+- web/amogsus-api - [writeup](./litctf2023/amogsus-api/)
+- web/license-inject - [writeup](./litctf2023/license-inject/)
