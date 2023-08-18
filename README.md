@@ -27,3 +27,6 @@ Currently available writeups:
 - web/Ping Pong - [writeup](./litctf2023/ping-pong/)
 - web/amogsus-api - [writeup](./litctf2023/amogsus-api/)
 - web/license-inject - [writeup](./litctf2023/license-inject/)
+
+### CCCamp CTF 2023
+- web/Cybercrime Society Club Germany - [writeup](./cccamp23/cybercrime/)
