@@ -17,10 +17,10 @@ def sendApiRequest(action, data, session=None):
 
 
 def main():
-    normal_user = f"{randint(0, 100000)}@foo.bar"
+    normal_user = "normal@foo.bar"
     password = "supersecure"
     all_activation_ids = [f"{i:04}" for i in range(10000)]
-    new_admin_user = f"{randint(0, 100000)}@foo.bar"
+    new_admin_user = f"new_admin@foo.bar"
     admin_user = "admin@cscg.de"
     print("Using normal user email:", normal_user)
     print("Using new admin user email:", new_admin_user)
@@ -51,7 +51,7 @@ def main():
         "email": new_admin_user,
         "password": password,
         "groupid": "001",
-        "userid": f"1e{randint(20, 99)}",
+        "userid": f"1e{randint(10, 99)}",
         "activation": all_activation_ids
     })
     print("Create new admin:", resp)

@@ -26,9 +26,9 @@ Funny, quite a lot of options here. We can even set our own UserId. But what's w
 
 [<img src="./assets/screen3.png" alt="screen3.png" width="350"/>](./assets/screen3.png)
 
-We could either try every possible option when sending this request... But we also have the source code available. So let's see what checkes are used when creating a user.
+We could either try every possible option when sending this request... But we also have the source code available. So let's see what checks are used when creating a user.
 
-[!NOTE]
+> _**NOTE:**_
 Before diving into the code: Every request to the API of the page is sent via POST to the `/json_api` route. The specific action is defined with field in the body of the message, respectively called `action`. The other field in the body is called `data` and contains whatever information is necessary for the request.
 
 The [app.py](./assets/files/app/app.py) contains the server logic with some helper functions and the defined routes. Some more functions are defined in the [Userdb.py](./assets/files/app/Userdb.py). But most interesting: The `flag.txt` is in the same directory as those two files. Reading the contents of that file is clearly the goal of this challenge.
@@ -41,9 +41,9 @@ When creating a user, eventually the `check_activation_code(activation_code)` fu
 
 Here, `activation_code` is the directly provided by the user via the `data` field in the body of the POST request. So, assuming `activation_code` is a string, this check always creates a random integer between 0000 and 9999 and checks whether that is contained in that string given by the user. I repeat, "**is contained in**". That means we could provide a string that contains all possible integers. That check would always be true. Even better: We are not limited to strings. JSON allows us to provide a list, which works as well.
 
-One could think they could also brute-force that random number, because it is very small. That 20 second delay though prevents that. The author even hints to that with a comment.
+One could think they could also brute-force that random number, because it is very small. That 20 second delay prevents that though. The author even hints to that with a comment.
 
-Using this, we can actually create an account. Let's do that in a script, just to keep up with note of what we are doing:
+Using a list of activation codes this, we can actually create an account. Let's do that in a script, just to keep up with note of what we are doing:
 
 ```python
 import requests
@@ -95,7 +95,7 @@ That returns:
 }
 ```
 
-Okay. The webpage with that user shows that we can really only change our own user information. It looks like this:
+Okay. After logging in with that user, the webpage shows that we can really only change our own user information. It looks like this:
 
 [<img src="./assets/screen4.png" alt="screen4.png" width="500"/>](./assets/screen3.png)
 
@@ -121,6 +121,8 @@ if delete_accs(data["data"].values()):
 So if we provide our own email, it will delete our own account. But if we also provide the admin's email, that account should be deleted, too. Let's try that:
 
 ```python
+normal_user = "user@foo.bar"
+admin_user = "admin@cscg.de"
 r = s.post(url, data=json.dumps({
     "action": "delete_account",
     "data": {
@@ -155,6 +157,7 @@ This results in the following: 1 * 10**10 = 10000000000 = 1e10
 We should be able to use that. Let's try and create a new user:
 
 ```python
+admin_user = "admin@cscg.de"
 new_admin_user = "admin@foo.bar"
 password = "supersecure"
 r = requests.post(url, data=json.dumps({
@@ -180,7 +183,7 @@ print(r.text)
 r = s.post(url, data=json.dumps({
     "action": "edit_account",
     "data": {
-        "email": "admin@cscg.de"
+        "email": admin_user
     }
 }))
 print(r.text)
@@ -207,13 +210,13 @@ Let's now login in the browser using the email address we have just set and our 
 
 [<img src="./assets/screen5.png" alt="screen5.png" width="500"/>](./assets/screen3.png)
 
-Using this, we can execute the `date` command. Nothing else seems to be possible, because in every case we get an error message. Looking at the code for that, this check seems to be the culprit:
+Using this, we can execute the `date` command. Nothing else seems to be possible, because in every other case we get an error message. Looking at the code for that, this check seems to be the culprit:
 
 ```python
 len(string) == 4 and string.index("date") == 0
 ```
 
-`string` is the value provided in the `cmd` field by the user. It might seem like it only allows the string `"date"`. But as have the value under our control, we can again provide a list that also returns `True` on that check. All that list needs to do is have four elements and the first element needs to be "date".
+`string` is the value provided in the `cmd` field by the user. It might seem like it only allows the string `"date"`. But as have the value under our control, we can again provide a list that also returns `True` on that check. All that list needs to do is to have four elements and the first element needs to be "date".
 
 As this input is then put into `subprocess.run()`, it seems like we can control the input parameters into `date`. Remember that we need to read the contents of that `flag.txt`? We can try to use the `-f` parameter to read a file. It tries to read and parse a date from a given file. If that is not a valid date, it prints the following error message: `invalid date '{contents-of-the-file}'`
 
@@ -229,7 +232,8 @@ r = s.post(url, data=json.dumps({
 print(r.text)
 ```
 
-Note that we also provide the `-R` flag to have the list be of length 4. This flag would make the parsed date to be in a different format. But as the date can't be parsed, this does not have any effect.
+> **_Note:_** 
+We also provide the `-R` flag to have the list be of length 4. This flag would make the parsed date to be in a different format. But as the date can't be parsed, this does not have any effect.
 
 The request returns the following output:
 
