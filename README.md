@@ -30,3 +30,6 @@ Currently available writeups:
 
 ### CCCamp CTF 2023
 - web/Cybercrime Society Club Germany - [writeup](./cccamp23/cybercrime/)
+
+### Hack.lu CTF 2023
+- web/Based Encoding - [writeup](./hackluctf23/based/)
